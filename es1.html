@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dettagli Utente</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 40px;
+            color: #333;
+            font-size: 2rem;
+        }
+
+        table {
+            width: 70%;
+            margin: 40px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        td {
+            background-color: #fafafa;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f1f1f1;
+        }
+
+        tr:hover td {
+            background-color: #e5e5e5;
+        }
+
+        .value-cell {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dettagli dell'Utente</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>DATI</th>
+                <th>VALORE</th>
+            </tr>
+        </thead>
+        <tbody id="datiintabella">
+        </tbody>
+    </table>
+
+    <script>
+        var datiUtente = {
+            "nome": "Cristiano",
+            "cognome": "Ronaldo",
+            "indirizzo": "busto arsizio 9",
+            "citta": "Napoli",
+            "età": 38
+        };
+
+        function mostraDati(dati) {
+            var Tabella = document.getElementById('datiintabella');
+            
+            for (var campo in dati) {
+                var riga = Tabella.insertRow();
+                riga.insertCell(0).innerHTML = campo.charAt(0).toUpperCase() + campo.slice(1);
+                riga.insertCell(1).innerHTML = `<span class="value-cell">${dati[campo]}</span>`;
+            }
+        }
+
+        mostraDati(datiUtente);
+    </script>
+
+</body>
+</html>
